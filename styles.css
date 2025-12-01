@@ -1,0 +1,646 @@
+/* root variables */
+:root {
+    /* base colour scheme */
+    --sixty: #080f08fe;   /* backgrounds and dark modifyer for gradients */
+    --thirty: #71f071;    /* text color */
+    --ten: #005624;       /* accent color */
+    
+    /* base colour modifiers */
+    --sixty-darker: color-mix(in srgb, var(--sixty), #080f08fe 30%);
+    --thirty-darker: color-mix(in srgb, var(--thirty), #080f08fe 30%);
+    --thirty-darkest: color-mix(in srgb, var(--thirty-darker), #080f08fe 30%);
+    --ten-darker: color-mix(in srgb, var(--ten), #080f08fe 30%);
+
+    /* background gradients */
+    --background-gradient-primary: linear-gradient(to left, var(--sixty), var(--sixty-darker));
+    --background-headline: linear-gradient(to bottom, var(--thirty) 0%, var(--thirty-darker) 20%, var(--thirty-darker) 58%, var(--sixty) 70%, var(--sixty) 75%, var(--thirty-darkest) 80%, var(--thirty-darker) 100%);
+    --background-header-nav: radial-gradient(ellipse 100% 60%, var(--thirty-darkest), var(--sixty));
+    --background-header-nav-list: radial-gradient(circle, var(--sixty), var(--ten));
+    --background-hero: radial-gradient(circle, var(--sixty), var(--sixty), var(--sixty), var(--sixty), var(--thirty-darker));
+    --background-hero-title: radial-gradient(circle, var(--ten), var(--ten), var(--sixty), var(--sixty), var(--thirty-darkest));
+    --background-hero-body: radial-gradient(circle, var(--sixty), var(--sixty), var(--ten), var(--thirty-darkest));
+
+    --background-mission-vision: radial-gradient(circle, var(--sixty), var(--sixty), var(--sixty), var(--sixty), var(--thirty));
+    --background-mission-vision-title: radial-gradient(circle, var(--ten), var(--ten), var(--sixty), var(--sixty), var(--sixty), var(--ten));
+    --background-mission-vision-body: radial-gradient(circle, var(--sixty), var(--sixty), var(--ten));
+
+    --background-skills:  radial-gradient(circle, var(--sixty), var(--sixty), var(--sixty), var(--sixty), var(--thirty));
+    --background-skills-title: radial-gradient(circle, var(--ten), var(--ten), var(--sixty), var(--sixty), var(--sixty), var(--ten));
+    --background-skills-body: radial-gradient(circle, var(--sixty), var(--sixty), var(--ten));
+
+    --background-projects: radial-gradient(circle, var(--sixty), var(--sixty), var(--sixty), var(--sixty), var(--thirty));
+    --background-projects-title: radial-gradient(circle, var(--ten), var(--ten), var(--sixty), var(--sixty), var(--sixty), var(--ten));
+    --background-projects-body: radial-gradient(circle, var(--sixty), var(--sixty), var(--ten));
+
+    --background-contact: radial-gradient(circle, var(--sixty), var(--sixty), var(--sixty), var(--sixty), var(--thirty));
+    --background-contact-title: radial-gradient(circle, var(--ten), var(--ten), var(--sixty), var(--sixty), var(--sixty), var(--ten));
+    --background-contact-body: radial-gradient(circle, var(--sixty), var(--sixty), var(--sixty), var(--sixty), var(--ten));
+
+    --background-resume: radial-gradient(circle, var(--sixty), var(--sixty), var(--sixty), var(--sixty), var(--thirty));
+    --background-resume-title: radial-gradient(circle, var(--ten), var(--ten), var(--sixty), var(--sixty), var(--sixty), var(--ten));
+    --background-resume-body: radial-gradient(circle, var(--sixty), var(--sixty), var(--ten));
+
+    /* fonts */
+    --font-family-sans: system-ui, "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+    --font-family-mono: "Consolas", "Courier New", ui-monospace, "SFMono-Regular", "Menlo", "Monaco", monospace;
+    --font-family-serif: "EB Garamond", Georgia, serif;
+    --font-family-CTA: "Press Start 2P", system-ui, sans-serif;
+
+    /* font sizes */
+    --font-size-body: 1rem;
+    --font-size-title: 2rem;
+    --font-size-nav: 1.5rem;
+    --font-size-CTA: 1.8rem;
+    --font-size-button: 3rem;
+
+    /* link state colours */
+    --link: var(--thirty);
+    --link-visited: var(--thirty-darker);
+    --link-hover-background: var(--sixty-darker);
+    --link-hover-font: var(--thirty);
+
+    /* entity containers */
+    --headline-height: 10vw;
+
+    /* breakpoints */
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
+}
+
+/* font classes */
+.Font-Body {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    color: var(--thirty);
+}
+.Font-Title {
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-title);
+    line-height: 1.2;
+    color: var(--thirty);
+}
+.Font-Mono {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+    color: var(--thirty);
+}
+.Font-Nav {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-nav);
+    font-weight: 600;
+    color: var(--thirty);
+}
+.Call-To-Action {
+    font-family: var(--font-family-CTA);
+    font-size: var(--font-size-CTA);
+    line-height: 1.2;
+    color: var(--thirty);
+    text-align: center;
+    display: block;
+    grid-area: cta;
+}
+:root:has(#ThemeToggle:checked) {
+  --sixty: #cebf9bfe;
+  --thirty: #000000;
+  --ten:   #634200;
+}
+body {
+    box-sizing: border-box;
+    font-family: var(--font-family-mono);
+    color: var(--thirty);
+    background: var(--sixty);
+    border: 10px solid var(--sixty-darker);
+    margin: 12px auto;
+    padding: 18px;
+    scroll-behavior: smooth;
+    width: min(100%, 100rem);
+}
+.Skip-Link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px; height: 1px; overflow: hidden;
+}
+.Skip-Link:focus {
+  left: 12px; top: 12px;
+  width: auto; height: auto; padding: 8px 12px;
+  background: var(--link-hover-background);
+  color: var(--link-hover-font);
+  z-index: 9999;
+}
+.Headline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto auto;
+    height: auto;
+    min-height: fit-content;
+    align-items: stretch;
+    border-radius: 12px;
+    padding: 8px;
+    width: min(100%, 100rem);
+    margin: 16px auto;
+    box-sizing: border-box;
+    border: 4px solid var(--ten);
+    background: var(--background-headline);
+}
+.Headline-Logo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: grid;
+    place-items: center;
+    overflow:hidden;
+}
+.Logo {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    transition: 
+        transform 
+        600ms 
+        ease;
+    transform-origin: 
+        0% /*  */
+        50%; /*  */
+}
+
+.Lightmode-Link {
+    display: inline-flex; 
+    align-items: center;
+}
+.Headline-Banner {
+    grid-column: 2 / 6;
+    grid-row: 1 / 2;
+    overflow: hidden;
+    position: relative;
+}
+.Banner {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display:block;
+}
+.Headline-Title {
+    grid-column: 1 / 6;
+    grid-row: 2 / 3;
+    margin: 0;
+    padding: 0;
+    background: var(--background-gradient-primary)
+}
+.Headline-Nav {
+  grid-column: 1 / 6;
+  grid-row: 3 / 4;
+  background: var(--background-header-nav);
+  border: 2px solid var(--thirty);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.Headline-Nav nav {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.Headline-Nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin: 0;
+  padding: 10px;
+  width: min(100%, 100rem);
+}
+.Headline-Nav li {
+  border: 1px solid var(--ten);
+  border-radius: 8px;
+  background: var(--background-header-nav-list);
+  overflow: hidden;
+}
+.Headline-Nav a {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--thirty);
+}
+.Headline-Nav li:hover,
+.Headline-Nav li:focus-within {
+  background: var(--thirty);
+  box-shadow: 0 0 12px var(--ten);
+}
+
+header nav a:hover {
+  color: var(--ten-darker);
+}
+
+/* main title style */
+h1 {    
+    font-family: var(--font-family-serif);
+    color: var(--thirty);
+    background: var(--background-gradient-primary);
+    width: min(100%, 100rem);
+}
+
+/* main border box */
+main {
+    border: 10px solid var(--ten);
+    margin: 12px;
+    padding: 18px;
+    box-sizing: border-box;
+    width: min(100%, 100rem);
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "hero" "hero"
+    "mission" "projects"
+    "skills" "skills"
+    "contact";
+}
+
+/* Hero section */
+#Hero {
+    border: 5px solid var(--ten);
+    padding: 22px;
+    margin: 0;
+    background: var(--background-hero);
+    border-radius: 45px;
+    width: auto;
+    grid-area: hero;
+}
+.Hero-Title {
+    background: var(--background-hero-title);
+    text-align: center;
+    margin-top: 0px;
+}
+.Hero-Body {
+    display: grid;
+    gap: 16px;
+    background: var(--background-hero-body);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "photo"
+    "message"
+    "cta";
+}
+.Image-Profile {
+  grid-area: photo;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  place-items: center;
+  object-fit: contain;
+}
+.Message {
+    grid-area: message;
+}
+/* .Call-To-Action */
+
+/* Mission-Vision section */
+#Mission-Vision {
+    border: 5px solid var(--ten);
+    box-sizing: border-box;
+    padding: 22px;
+    margin: 0;
+    background: var(--background-mission-vision);
+    border-radius: 45px;
+    height: 100%;
+    max-height: 24rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    overflow: hidden;
+    grid-area: mission;
+}
+.Mission-Vision-Title {
+    background: var(--background-mission-vision-title);
+    text-align: center;
+    margin-top: 0px;
+}
+.Mission-Vision-Body {
+    background: var(--background-mission-vision-body);
+    text-align: center;
+}
+#Mission-Vision .Font-Body,
+.Mission-Vision-Body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.5rem;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ten) transparent;
+}
+/* Projects section */
+#Projects {
+    border: 5px solid var(--ten);
+    box-sizing: border-box;
+    padding: 22px;
+    margin: 0;
+    background: var(--background-projects);
+    border-radius: 45px;
+    height: 24rem;
+    width: auto;
+    grid-area: projects;
+}
+.Projects-Title {
+    background: var(--background-projects-title);
+    text-align: center;
+    margin-top: 0px;
+}
+.Projects-Body {
+    background: var(--background-projects-body);
+    text-align: center;
+}
+
+/* Skills section */
+#Skills {
+    border: 5px solid var(--ten);
+    border-radius: 45px;
+    padding: 22px;
+    margin: 0;
+    background: var(--background-skills);
+    grid-area: skills;
+}
+.Skills-Title {
+    background: var(--background-skills-title);
+    text-align: center;
+    margin-top: 0;
+}
+.Skills-Body {
+    background: var(--background-skills-body);
+    display: grid;
+    gap: 8px 16px;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+/* Contact section */
+#Contact {
+    border: 5px solid var(--ten);
+    box-sizing: border-box;
+    padding: 22px;
+    margin: 0;
+    background: var(--background-contact);
+    border-radius: 45px;
+    width: auto;
+    grid-area: contact;
+}
+.Contact-Title {
+    background: var(--background-contact-title);
+    text-align: center;
+    margin-top: 0px;
+}
+.Contact-Body {
+    background: var(--background-contact-body);
+    text-align: center;
+}
+
+/* Resume-Character-sheet */
+#Resume-Character-Sheet {
+    border: 5px solid var(--ten);
+    box-sizing: border-box;
+    padding: 22px;
+    margin: 0;
+    background: var(--background-resume);
+    border-radius: 45px;
+    width: auto;
+    grid-area: resume;
+}
+.Resume-Character-Sheet-Title {
+    background: var(--background-resume-title);
+    text-align: center;
+    margin-top: 0px;
+}
+.Resume-Character-Sheet-Body {
+    background: var(--background-resume-body);
+    text-align: center;
+}
+
+/* general buttons */
+button, .btn {
+    background: var(--background-gradient-primary);
+    border: 1px solid var(--ten);
+    color: var(--thirty);
+    font-family: var(--font-family-sans);
+    border-radius: 6px;
+    padding: 6px 12px;
+    text-decoration: none;
+    font-size: var(--font-size-button);
+}
+/* CTA button */
+.Button-CTA {
+    background: var(--background-gradient-primary);
+    border: 1px solid var(--ten);
+    color: var(--thirty);
+    font-family: var(--font-family-CTA);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 1rem;
+}
+.btn:hover {
+    color: var(--thirty);
+    background: var(--link-hover-background);
+}
+.btn:active {
+    color: var(--sixty);
+    background-color: var(--thirty);
+}
+/* Mission-Vision-Box scroll button */
+.Scroll-Down {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--ten);
+  background: linear-gradient(to top, var(--sixty) 50%, transparent);
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+/* sets link colour */
+a {
+    color: var(--link);
+}
+a   [target="_blank"]
+
+/* sets visited link colour */
+a:visited {
+    color: var(--link-visited);
+}
+/* sets hover-over link colour */
+a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-font);
+    background: var(--link-hover-background);
+}
+
+/* removes image link styles */
+a img,
+a:link img,
+a:visited img {
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+}
+/* keeps the image keyboard accessable */
+a:focus-visible {
+    outline: 5px solid var(--thirty);
+    color: var(--link-hover-font);
+    background: var(--link-hover-background);
+    outline-offset: 5px;
+}
+/* sets images responsive to containing element */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* Smooth color/border transitions */
+html, body, header, main, section, nav, a, button, input, 
+.Card, .Hero-Body, .Skills-Body, .Call-To-Action, .Button-CTA {
+  transition: 
+    background-color 300ms ease, 
+    color 300ms ease, 
+    border-color 300ms ease;
+}
+
+html {
+  transition:
+    background-color 280ms ease,
+    color 280ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { transition: none; }
+}
+/* media tablet (768px–1023px) */
+@media (min-width: 768px) and (max-width: 1023.99px){ 
+
+    .Theme-Light {
+    --sixty: #cebf9bfe;
+    --thirty: #000000;
+    --ten:   #634200;
+  }
+    body {
+        font-size: 90%;
+    }
+    header nav ul {
+        flex-direction: row;
+        gap: 24px;
+    }
+    header nav li {
+        padding: 4px 8px;
+    }
+    .Font-Body {
+        font-size: var(--font-size-body);
+    }
+    .Font-Title {
+        font-size: var(--font-size-title);
+    }
+    .Font-Nav {
+        font-size: var(--font-size-nav);
+    }
+    .Hero-Body {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "photo message"
+        "cta   cta";
+        align-items: start;
+    }
+    .Call-To-Action {
+        font-size: var(--font-size-CTA);
+    }
+    .Button-CTA::before {
+        content: "Roll 1d20";
+        /* planned javascript dice roller */
+    }
+    .Skills-Body {
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .Headline-Nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px 16px;
+    }
+    
+    .Headline-Nav li {
+    flex: 0 1 auto;
+    }
+    .Headline-Nav a {
+    width: auto;
+    padding: 8px 14px;
+    }
+    main {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        grid-template-areas:
+        "hero hero"
+        "hero hero"
+        "mission projects"
+        "skills skills"
+        "contact contact";
+    }
+    body {
+        font-size: 100%;
+    }
+    header nav ul {
+        flex-direction: row;
+        gap: 32px;
+    }
+    .Font-Body {
+        font-size: 1rem;
+    }
+    .Font-Title {
+        font-size: 2rem;
+    }
+    .Font-Nav {
+        font-size: 1.5rem;
+    }
+    .Hero-Body {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "photo message"
+        "cta   cta";
+        gap: 20px;
+    }
+    .Call-To-Action {
+        font-size: 2.5rem;
+    }
+    .Button-CTA::before {
+        content: " X ";
+    }
+    .Skills-Body {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+    .Hero-Body {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+    }
+    #Contact {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 48rem;
+        width: 100%;
+    }
+}
