@@ -261,7 +261,9 @@ main {
     grid-template-columns: 1fr;
     grid-template-areas:
     "hero" 
+    "hero"
     "mission" 
+    "projects"
     "projects"
     "skills" 
     "contact";
@@ -648,6 +650,7 @@ html {
     }
 
 }
+
 
 
 
