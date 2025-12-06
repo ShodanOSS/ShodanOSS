@@ -296,7 +296,7 @@ main {
 }
 .Image-Profile {
   grid-area: photo;
-  display: block;
+  display: grid;
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -536,7 +536,7 @@ html {
     --sixty: #9e8f6c;
     --thirty: #000000;
     --ten:   #634200;
-  }
+    }
     body {
         font-size: 90%;
     }
@@ -649,6 +649,7 @@ html {
     }
 
 }
+
 
 
 
