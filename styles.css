@@ -275,7 +275,6 @@ main {
     margin: 0 auto;
     background: var(--background-hero);
     border-radius: 45px;
-    max-height: 24rem;
     width: 100%; 
     grid-area: hero;
 }
@@ -649,6 +648,7 @@ html {
     }
 
 }
+
 
 
 
