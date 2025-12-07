@@ -386,6 +386,7 @@ main {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--ten) transparent;
+}
 
 /* Skills section */
 #Skills {
@@ -669,3 +670,4 @@ html {
     }
 
 }
+
