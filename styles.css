@@ -622,10 +622,10 @@ html {
         gap: 32px;
     }
     .Font-Body {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
     .Font-Title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     .Font-Nav {
         font-size: 2rem;
@@ -660,6 +660,7 @@ html {
     }
 
 }
+
 
 
 
